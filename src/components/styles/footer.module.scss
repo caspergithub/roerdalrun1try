@@ -1,0 +1,43 @@
+@import 'global';
+
+.footer {
+    background-color: $lightBlue;
+    padding: 16px;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 8px;
+    justify-content: center;
+    color: $darkBlue;
+    height: 160px;
+    padding: 2rem;
+
+    .footerLinks {
+        color: $darkBlue;
+        text-decoration: none;
+        font-size: $buttonSize;
+        font-weight: $buttonStyle;
+        display: block;
+        margin: 8px 0;
+    }
+
+    .information {
+        font-size: 10px;
+        transform-origin: 62px 9px;
+        transform: rotate(-90deg);
+        color: $darkBlue;
+    }
+
+    .contactus {
+        font-size: 10px;
+        transform-origin: 62px 9px;
+        transform: rotate(-90deg);
+        color: $darkBlue;
+    }
+
+    .phonenumberandmail {
+        font-size: $buttonSize;
+        font-weight: $buttonStyle;
+        margin: 8px 0;
+    }
+}

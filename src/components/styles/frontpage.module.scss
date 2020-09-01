@@ -1,0 +1,73 @@
+@import 'global';
+
+.maindiv {
+    width: $mainpageWidth;
+    color: $darkBlue;
+
+    @media screen and (max-width: 800px) {
+        width: auto;
+    }
+
+    section {
+        padding: 0 1rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: $headlineSize;
+        font-weight: $bodyStyle;
+    }
+
+    h3 {
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: $titleSize;
+        font-weight: $bodyStyle;
+    }
+
+    .item1 { grid-area: item1; }
+    .item2 { grid-area: item2; padding-top: 15px; }
+    .item3 { grid-area: item3; }
+    .item4 { grid-area: item4; }
+    .item5 { grid-area: item5; }
+
+    .gridcontainer {
+        display: grid;
+        grid-template-areas: 
+        'item1 item2 item2 item2'
+        'item1 item3 item4 item5';
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 22px;
+
+        @media screen and (max-width: 800px) {
+            grid-template-areas: 
+            'item1'
+            'item2'
+            'item3'
+            'item4'
+            'item5';
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .mereinfo {
+        border: 2px solid $midBlue;
+        padding: 8px;
+        color: $darkBlue;
+        font-weight: $buttonStyle;
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .tilmeld {
+        background-color: $darkBlue;
+        color: white;
+        padding: 8px;
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid $darkBlue;
+        cursor: pointer;
+    }
+}

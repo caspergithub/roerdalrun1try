@@ -1,0 +1,21 @@
+@import 'global';
+
+.maindiv{
+    width: $mainpageWidth;
+    color: $darkBlue;
+
+    @media screen and (max-width: 800px) {
+        width: auto;
+    }
+
+    section {
+        padding: 0 1rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: $headlineSize;
+        font-weight: $headlineStyle;
+    }
+}

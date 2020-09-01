@@ -1,0 +1,127 @@
+@import 'global';
+
+.navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: grid;
+    width: 15vw;
+    height: 100vh;
+    background-color: $darkBlue;
+
+    @media screen and (max-width: 800px) {
+        position: initial;
+        width: auto;
+        height: auto;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    .navbarLinks {
+        display: block;
+        font-size: $buttonSize;
+        font-weight: $buttonStyle;
+        text-decoration: none;
+        margin: 8px;
+        padding: 8px;
+        color: white;
+        cursor: pointer;
+        border-bottom: $midBlue 2px solid;
+
+        &:hover {
+            color: $lightBlue;
+        }
+    }
+
+    .smicons {
+        color: white;
+        display: grid;
+        grid-template-columns: 22px 22px;
+        font-size: 20px;
+        gap: 8px;
+        padding: 16px;
+        align-content: end;
+        text-align: center;
+        justify-content: center;
+        cursor: pointer;
+
+        svg {
+            justify-self: center;
+        }
+    }
+}
+
+.menuicon {
+    color: white;
+    font-size: 28px;
+    margin: 0;
+}
+
+.menutext {
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.iconandtext {
+    padding: 0 0 0 80%;
+    right: 0;
+    position: relative;
+
+    @media screen and (max-width: 800px) {
+        padding: 0 0 0 93%;
+    }
+}
+
+.dropdown:hover .menuxdiv {
+    display: block;
+}
+
+.dropdown:hover .iconandtext {
+    opacity: 0;
+}
+
+.menuxdiv:hover .dropdowncontent {
+    display: none;
+}
+
+.menuxdiv {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 5px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.menux {
+    color: white;
+    font-size: 28px;
+}
+
+.dropdown {
+    display: inline-block;
+    width: 15vw;
+
+    @media screen and (max-width: 800px) {
+        width: 100vw;
+    }
+}
+
+.dropdowncontent {
+    display: none;
+    width: 15vw;
+    z-index: 1;
+
+    @media screen and (max-width: 800px) {
+        width: 100vw;
+    }
+}
+
+.dropdown:hover .dropdowncontent {
+    display: block;
+}

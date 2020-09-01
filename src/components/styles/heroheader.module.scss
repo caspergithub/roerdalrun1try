@@ -1,0 +1,41 @@
+@import 'global';
+.heroheaderdiv{
+    width: $mainpageWidth;
+    background-color: $lightBlue;
+    text-align: center;
+    height: 200px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: -1;
+
+    @media screen and (max-width: 800px) {
+        width: auto;
+    }
+
+    h1{
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: $headlineSize;
+        font-weight: $bodyStyle;
+        padding: 22px;
+        color: $darkBlue;
+    }
+}
+.heroheaderdiv:after{
+    content: '';
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 0;
+    height: 10px;
+    border-left: $mainpageWidth solid transparent;
+    border-top: 50px solid $lightBlue;
+
+    @media screen and (max-width: 800px) {
+        border-left: 100vw solid transparent;
+    }
+}

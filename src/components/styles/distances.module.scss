@@ -1,0 +1,50 @@
+@import 'global';
+
+.maindiv{
+    width: $mainpageWidth;
+    color: $darkBlue;
+
+    @media screen and (max-width: 800px) {
+        width: auto;
+    }
+
+    section {
+        padding: 0 1rem;
+    }
+
+    h2 {
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: $headlineSize;
+        font-weight: $bodyStyle;
+    }
+}
+
+h3 {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: $titleSize;
+    font-weight: $bodyStyle;
+}
+
+.breadcrumbs {
+    font-size: $buttonSize;
+    font-weight: $buttonStyle;
+}
+
+.bclink {
+    text-decoration: none;
+    color: $darkBlue;
+}
+
+.distancesgrid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 16px;
+    margin-top: 16px;
+
+    .backgroundblue {
+        background-color: $lightBlue;
+        padding: 12px;
+    }
+}
