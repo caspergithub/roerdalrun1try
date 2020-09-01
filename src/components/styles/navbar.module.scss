@@ -70,6 +70,7 @@
     padding: 0 0 0 80%;
     right: 0;
     position: relative;
+    transition: opacity .5s;
 
     @media screen and (max-width: 800px) {
         padding: 0 0 0 93%;
@@ -124,4 +125,28 @@
 
 .dropdown:hover .dropdowncontent {
     display: block;
+}
+
+
+.navbarform {
+    display: grid;
+    width: 14vw;
+    margin: auto;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 1rem;
+    border: 1px solid $lightBlue;
+
+    @media screen and (max-width: 800px) {
+        width: 90vw;
+    }
+
+    .navbarlabel {
+        display: block;
+        color: white;
+    }
+
+    input {
+        display: block;
+    }
 }

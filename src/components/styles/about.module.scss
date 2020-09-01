@@ -16,6 +16,16 @@
         margin: 0;
         font-family: 'Times New Roman', Times, serif;
         font-size: $headlineSize;
-        font-weight: $headlineStyle;
+        font-weight: $bodyStyle;
     }
+}
+
+.breadcrumbs {
+    font-size: $buttonSize;
+    font-weight: $buttonStyle;
+}
+
+.bclink {
+    text-decoration: none;
+    color: $darkBlue;
 }

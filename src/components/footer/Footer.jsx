@@ -10,9 +10,9 @@ export default function Footer() {
             </div>
             <div>
                 <Link className={scss.footerLinks} to="/about">OM RØRDAL RUN</Link>
-                <Link className={scss.footerLinks} to="/about">RUTER</Link>
-                <Link className={scss.footerLinks} to="/about">TILMELDING</Link>
-                <Link className={scss.footerLinks} to="/about">DISTANCER</Link>
+                <Link className={scss.footerLinks} to="/frontpage">RUTER</Link>
+                <Link className={scss.footerLinks} to="/registration">TILMELDING</Link>
+                <Link className={scss.footerLinks} to="/distances">DISTANCER</Link>
             </div>
             <div>
                 <p className={scss.contactus}>KONTAKT OS</p>

@@ -16,6 +16,34 @@
         margin: 0;
         font-family: 'Times New Roman', Times, serif;
         font-size: $headlineSize;
-        font-weight: $headlineStyle;
+        font-weight: $bodyStyle;
+    }
+}
+
+.breadcrumbs {
+    font-size: $buttonSize;
+    font-weight: $buttonStyle;
+}
+
+.bclink {
+    text-decoration: none;
+    color: $darkBlue;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+
+    label {
+        display: block;
+    }
+
+    input {
+        display: block;
     }
 }

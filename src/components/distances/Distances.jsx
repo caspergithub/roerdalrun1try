@@ -9,7 +9,7 @@ export default function Distances(props) {
 
     // fetch page
     const [page, setPage] = useState([])
-    console.log("Distances -> page", page)
+    // console.log("Distances -> page", page)
 
     async function fetchPage() {
         const url = `https://api.mediehuset.net/rordal/pages/2`
@@ -23,9 +23,9 @@ export default function Distances(props) {
 
     // fetch distances
     const [distances, setDistances] = useState([])
-    console.log("Distances -> distances", distances)
+    // console.log("Distances -> distances", distances)
     const [distanceID, setDistanceID] = useState(0)
-    console.log("Distances -> distanceID", distanceID)
+    // console.log("Distances -> distanceID", distanceID)
 
     async function fetchDistances() {
         const url = `https://api.mediehuset.net/rordal/run`
@@ -43,7 +43,7 @@ export default function Distances(props) {
             <section>
                 <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> DISTANCER</span>
                 <h2>{page.item && page.item.title}</h2>
-                {page.item && page.item.content}
+                <p>{page.item && page.item.content}</p>
                 <div className={scss.distancesgrid}>
                     <div className={scss.backgroundblue}>
                         <h3>Distancebeskrivelser</h3>
@@ -51,17 +51,17 @@ export default function Distances(props) {
                         {distances.items && distances.items.map((item, i) => {
                             return (
                                 <div key={i}>
-                                    <p id={i} onClick={(e) => { setDistanceID(e.target.id) }}><BsDot />{item.title}</p>
+                                    <p className={scss.cursorpointer} id={i} onClick={(e) => { setDistanceID(e.target.id) }}><BsDot />{item.title}</p>
                                 </div>
                             )
                         })}
                     </div>
                     <div className={scss.backgroundblue}>
                         <h3>
-                            {distances.items && distances.items.[distanceID].title}
+                            {distances.items && distances.items[distanceID].title}
                         </h3>
                         <p>
-                            {distances.items && distances.items.[distanceID].description}
+                            {distances.items && distances.items[distanceID].description}
                         </p>
                     </div>
                 </div>
