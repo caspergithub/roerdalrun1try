@@ -8,7 +8,7 @@ export default function Frontpage(props) {
 
     // fetch page
     const [page, setPage] = useState([])
-    console.log("Frontpage -> page", page)
+    // console.log("Frontpage -> page", page)
 
     async function fetchPage() {
         const url = `https://api.mediehuset.net/rordal/pages/1`

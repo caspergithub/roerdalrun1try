@@ -33,6 +33,8 @@ export default function Registration(props) {
     const [runID, setRunID] = useState(1)
     const [comment, setComment] = useState('')
 
+    const [completed, setCompleted] = useState(false)
+
     // funktion der konverterer birthdate
     function dateToTimestamp(unixdate) {
         let date = new Date(unixdate);
@@ -42,7 +44,7 @@ export default function Registration(props) {
 
     async function sendRegistration(e) {
 
-        console.log("my props.loginData = ", props.loginData)
+        // console.log("my props.loginData = ", props.loginData)
 
         e.preventDefault()
 
@@ -75,7 +77,7 @@ export default function Registration(props) {
             const response = await fetch(url, options)
             const data = await response.json()
             console.log("send registration", data)
-
+            setCompleted(true)
         }
         catch (error) {
             console.log(error)
@@ -86,58 +88,67 @@ export default function Registration(props) {
         <div className={scss.maindiv}>
             <Heroheader />
             <section>
-                <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> TILMELDING</span>
-                <h2>{page.item && page.item.title}</h2>
-                <div dangerouslySetInnerHTML={page.item && { __html: page.item.content}}></div>
-                <form className={scss.registrationform}>
+                <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> TILMELDING {completed == true && <FaAngleRight />} {completed == true && "TAK FOR DIN TILMELDING"} </span>
+                {completed == false && <div>
+                    <h2>{page.item && page.item.title}</h2>
+                    <div dangerouslySetInnerHTML={page.item && { __html: page.item.content }}></div>
+                    <form className={scss.registrationform}>
+                        <div>
+                            <label>Navn</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setFirstname(e.target.value) }}></input>
+
+                            <label>Efternavn</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setLastname(e.target.value) }}></input>
+
+                            <label>Fødselsdato</label>
+                            <input className={scss.registrationinput} type="date" onChange={(e) => { setBirthdate(e.target.value) }}>
+                            </input>
+
+                            <label>Køn</label>
+                            <select onChange={(e) => { setGender(e.target.value) }}>
+                                <option value="m">Vælg køn</option>
+                                <option value="m">Mand</option>
+                                <option value="f">Kvinde</option>
+                            </select>
+
+                            <label>E-mail</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setEmail(e.target.value) }}></input>
+                        </div>
+                        <div>
+                            <label>Adresse</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setAddress(e.target.value) }}></input>
+
+                            <label>Postnummer</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setZipcode(e.target.value) }}></input>
+
+                            <label>By</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setCity(e.target.value) }}></input>
+
+                            <label>Telefon</label>
+                            <input className={scss.registrationinput} onChange={(e) => { setPhone(e.target.value) }}></input>
+
+                            <label>Vælg Program</label>
+                            <select onChange={(e) => { setRunID(e.target.value) }}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Kommentar</label>
+                            <input className={scss.commentfield} onChange={(e) => { setComment(e.target.value) }}></input>
+
+                            <button onClick={(e) => { sendRegistration(e) }} className={scss.tilmeld}>TILMELD</button>
+                        </div>
+                    </form>
+                </div>}
+                {completed == true &&
                     <div>
-                        <label>Navn</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setFirstname(e.target.value) }}></input>
-
-                        <label>Efternavn</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setLastname(e.target.value) }}></input>
-
-                        <label>Fødselsdato</label>
-                        <input className={scss.registrationinput} type="date" onChange={(e) => { setBirthdate(e.target.value) }}>
-                        </input>
-
-                        <label>Køn</label>
-                        <select onChange={(e) => { setGender(e.target.value) }}>
-                            <option value="m">Vælg køn</option>
-                            <option value="m">Mand</option>
-                            <option value="f">Kvinde</option>
-                        </select>
-
-                        <label>E-mail</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setEmail(e.target.value) }}></input>
+                        <h2>Du er nu tilmeldt Rørdal Run</h2>
+                        <p>Mange tak for din tilmelding. Du vil modtage en e-mail fra os med dit løbenummer, samt informationer vedr. Rørdal Run.</p>
+                        <p>Tak og vi ses!</p>
                     </div>
-                    <div>
-                        <label>Adresse</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setAddress(e.target.value) }}></input>
-
-                        <label>Postnummer</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setZipcode(e.target.value) }}></input>
-
-                        <label>By</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setCity(e.target.value) }}></input>
-
-                        <label>Telefon</label>
-                        <input className={scss.registrationinput} onChange={(e) => { setPhone(e.target.value) }}></input>
-
-                        <label>Vælg Program</label>
-                        <select onChange={(e) => { setRunID(e.target.value) }}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Kommentar</label>
-                        <input className={scss.commentfield} onChange={(e) => { setComment(e.target.value) }}></input>
-
-                        <button onClick={(e) => { sendRegistration(e) }} className={scss.tilmeld}>TILMELD</button>
-                    </div>
-                </form>
+                }
             </section>
         </div>
     )

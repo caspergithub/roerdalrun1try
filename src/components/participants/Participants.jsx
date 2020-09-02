@@ -22,6 +22,7 @@ export default function Participants(props) {
 
     // get participants
     const [participants, setParticipants] = useState('')
+    console.log("Participants -> participants", participants)
 
     async function getParticipants() {
         let headers = {
@@ -54,9 +55,12 @@ export default function Participants(props) {
                 <div className={scss.participantsgrid}>
                     {participants.items && participants.items.map((item, i) => {
                         return (<div key={i} className={scss.participantsinnerdiv}>
-                            <p className={scss.participantsinfo}>{item.firstname} {item.lastname}</p>
-                            <p className={scss.participantsinfo}>Fra {item.city}</p>
+                            <p className={scss.participantsinfo}>Navn: {item.firstname} {item.lastname}</p>
+                            <p className={scss.participantsinfo}>Fra: {item.city}</p>
                             <p className={scss.participantsinfo}>E-mail: {item.email}</p>
+                            <p className={scss.participantsinfo}>{item.run_id == 1 && "Jeg skal løbe 10km"}</p>
+                            <p className={scss.participantsinfo}>{item.run_id == 2 && "Jeg skal løbe 5km"}</p>
+                            <p className={scss.participantsinfo}>{item.run_id == 3 && "Jeg skal løbe one mile"}</p>
                         </div>
                         )
                     })}
