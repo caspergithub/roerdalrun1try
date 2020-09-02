@@ -70,38 +70,34 @@
     padding: 0 0 0 80%;
     right: 0;
     position: relative;
-    transition: opacity .5s;
+    transition: opacity .2s;
 
     @media screen and (max-width: 800px) {
         padding: 0 0 0 90vw;
     }
 }
 
-.dropdown:hover .menuxdiv {
-    display: block;
-}
 
-.dropdown:hover .iconandtext {
-    opacity: 0;
-}
-
-.menuxdiv:hover .dropdowncontent {
-    display: none;
+.positionR {
+    position: relative;
 }
 
 .menuxdiv {
-    display: none;
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px 5px;
-    z-index: 2;
+    padding: 5px;
+    z-index: 5;
     cursor: pointer;
+    transition: opacity .2s;
+    transition-delay: .2s;
 }
 
 .menux {
     color: white;
     font-size: 28px;
+    z-index: 10;
 }
 
 .dropdown {
@@ -121,6 +117,19 @@
     @media screen and (max-width: 800px) {
         width: 100vw;
     }
+}
+
+
+.positionR:hover .menuxdiv {
+    opacity: 100;
+}
+
+.dropdown:hover .iconandtext {
+    opacity: 0;
+}
+
+.menuxdiv:hover .dropdowncontent {
+    display: none;
 }
 
 .dropdown:hover .dropdowncontent {
@@ -166,11 +175,13 @@ button {
     cursor: pointer;
     border: none;
     background-color: $darkBlue;
-    width: 10vw;
+    border: 2px solid $midBlue;
+    border-radius: 5px;
+    // width: 10vw;
     text-align: start;
 
     @media screen and (max-width: 800px) {
-        width: 77vw;
+        // width: 77vw;
     }
 
     &:hover {
@@ -180,7 +191,6 @@ button {
 
 .logindropdowncontent {
     display: none;
-    transition: display 1s;
 }
 
 .logindropdown:hover .logindropdowncontent {

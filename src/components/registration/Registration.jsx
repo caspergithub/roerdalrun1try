@@ -6,8 +6,6 @@ import { FaAngleRight } from 'react-icons/fa'
 
 export default function Registration(props) {
 
-    console.log("Her er min props loginData = ", props.loginData)
-
     // fetch page
     const [page, setPage] = useState([])
     // console.log("Distances -> page", page)
@@ -35,13 +33,26 @@ export default function Registration(props) {
     const [runID, setRunID] = useState(1)
     const [comment, setComment] = useState('')
 
+    // funktion der konverterer birthdate
+    function dateToTimestamp(unixdate) {
+        let date = new Date(unixdate);
+        let converted = date.getTime() / 1000
+        return converted
+    }
+
     async function sendRegistration(e) {
+
+        console.log("my props.loginData = ", props.loginData)
+
         e.preventDefault()
+
+        let convertedDate = dateToTimestamp(birthdate)
+
         let formData = new FormData()
 
         formData.append('firstname', firstname)
         formData.append('lastname', lastname)
-        formData.append('birthdate', birthdate)
+        formData.append('birthdate', convertedDate)
         formData.append('gender', gender)
         formData.append('email', email)
         formData.append('address', address)
@@ -54,7 +65,7 @@ export default function Registration(props) {
         let options = {
             method: "POST",
             body: formData,
-            headers : {
+            headers: {
                 'Authorization': `Bearer ${props.loginData.access_token}`
             }
         }
@@ -81,33 +92,32 @@ export default function Registration(props) {
                 <form>
                     <div>
                         <label>Navn</label>
-                        <input onChange={(e) => {setFirstname(e.target.value)}}></input>
+                        <input onChange={(e) => { setFirstname(e.target.value) }}></input>
                         <label>Efternavn</label>
-                        <input onChange={(e) => {setLastname(e.target.value)}}></input>
+                        <input onChange={(e) => { setLastname(e.target.value) }}></input>
                         <label>Fødselsdato</label>
-                        <select onChange={(e) => {setBirthdate(e.target.value)}}>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                        </select>
+                        <input type="date" onChange={(e) => { setBirthdate(e.target.value) }}>
+                        </input>
                         <label>Køn</label>
-                        <input onChange={(e) => {setGender(e.target.value)}}></input>
+                        <select onChange={(e) => { setGender(e.target.value) }}>
+                            <option value="">Vælg køn</option>
+                            <option value="m">Mand</option>
+                            <option value="f">Kvinde</option>
+                        </select>
                         <label>E-mail</label>
-                        <input onChange={(e) => {setEmail(e.target.value)}}></input>
+                        <input onChange={(e) => { setEmail(e.target.value) }}></input>
                     </div>
                     <div>
                         <label>Adresse</label>
-                        <input onChange={(e) => {setAddress(e.target.value)}}></input>
+                        <input onChange={(e) => { setAddress(e.target.value) }}></input>
                         <label>Postnummer</label>
-                        <input onChange={(e) => {setZipcode(e.target.value)}}></input>
+                        <input onChange={(e) => { setZipcode(e.target.value) }}></input>
                         <label>By</label>
-                        <input onChange={(e) => {setCity(e.target.value)}}></input>
+                        <input onChange={(e) => { setCity(e.target.value) }}></input>
                         <label>Telefon</label>
-                        <input onChange={(e) => {setPhone(e.target.value)}}></input>
+                        <input onChange={(e) => { setPhone(e.target.value) }}></input>
                         <label>Vælg Program</label>
-                        <select onChange={(e) => {setRunID(e.target.value)}}>
+                        <select onChange={(e) => { setRunID(e.target.value) }}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -115,8 +125,8 @@ export default function Registration(props) {
                     </div>
                     <div>
                         <label>Kommentar</label>
-                        <input onChange={(e) => {setComment(e.target.value)}}></input>
-                        <button onClick={(e) => {sendRegistration(e)}}>TILMELD</button>
+                        <input onChange={(e) => { setComment(e.target.value) }}></input>
+                        <button onClick={(e) => { sendRegistration(e) }}>TILMELD</button>
                     </div>
                 </form>
             </section>

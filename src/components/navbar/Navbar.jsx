@@ -56,15 +56,16 @@ export default function Navbar(props) {
 
     return (
         <nav className={scss.navbar}>
-            <ul>
+            <ul className={scss.positionR}>
+                <div className={scss.menuxdiv} ><HiX className={scss.menux}/></div>
                 <div className={scss.dropdown}>
                     <div className={scss.iconandtext}>
                         <HiMenuAlt2 className={scss.menuicon} />
                         <p className={scss.menutext}>MENU</p>
                     </div>
-                    <div className={scss.menuxdiv}>
+                    {/* <div className={scss.menuxdiv}>
                         <HiX className={scss.menux} />
-                    </div>
+                    </div> */}
                     <div className={scss.dropdowncontent}>
                         <Link className={scss.navbarLinks} to="/frontpage">FORSIDE</Link>
                         <Link className={scss.navbarLinks} to="/distances">DISTANCER</Link>
@@ -81,7 +82,7 @@ export default function Navbar(props) {
                                             <input value={username} onClick={() => { setUsername("") }} onChange={(e) => { setUsername(e.target.value) }} />
                                             <label className={scss.navbarlabel}>Password</label>
                                             <input type="password" value={password} onClick={() => { setPassword("") }} onChange={(e) => { setPassword(e.target.value) }} />
-                                            <button onClick={(e) => { getToken(e) }} >Log ind</button>
+                                            <button className={scss.logoutbtn} onClick={(e) => { getToken(e) }} >Log ind</button>
                                         </>
                                     }
                                     {
