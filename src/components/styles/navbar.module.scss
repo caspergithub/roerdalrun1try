@@ -73,7 +73,7 @@
     transition: opacity .5s;
 
     @media screen and (max-width: 800px) {
-        padding: 0 0 0 93%;
+        padding: 0 0 0 90vw;
     }
 }
 
@@ -149,4 +149,40 @@
     input {
         display: block;
     }
+}
+
+button {
+    cursor: pointer;
+}
+
+.logoutbtn {
+    display: block;
+    font-size: $buttonSize;
+    font-weight: $buttonStyle;
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 8px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: $darkBlue;
+    width: 10vw;
+    text-align: start;
+
+    @media screen and (max-width: 800px) {
+        width: 77vw;
+    }
+
+    &:hover {
+        color: $lightBlue;
+    }
+}
+
+.logindropdowncontent {
+    display: none;
+    transition: display 1s;
+}
+
+.logindropdown:hover .logindropdowncontent {
+    display: block;
 }

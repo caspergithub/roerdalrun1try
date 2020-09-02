@@ -6,6 +6,8 @@ import { FaAngleRight } from 'react-icons/fa'
 
 export default function Registration(props) {
 
+    console.log("Her er min props loginData = ", props.loginData)
+
     // fetch page
     const [page, setPage] = useState([])
     // console.log("Distances -> page", page)
@@ -73,7 +75,7 @@ export default function Registration(props) {
         <div className={scss.maindiv}>
             <Heroheader />
             <section>
-                <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> DISTANCER</span>
+                <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> TILMELDING</span>
                 <h2>{page.item && page.item.title}</h2>
                 <p>{page.item && page.item.content}</p>
                 <form>

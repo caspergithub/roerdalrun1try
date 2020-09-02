@@ -5,6 +5,7 @@ import { FaFacebookF } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import { HiX } from 'react-icons/hi'
+import { FaCaretDown } from 'react-icons/fa'
 
 export default function Navbar(props) {
 
@@ -65,27 +66,31 @@ export default function Navbar(props) {
                         <HiX className={scss.menux} />
                     </div>
                     <div className={scss.dropdowncontent}>
-                        <Link className={scss.navbarLinks} to="/about">OM RØRDAL RUN</Link>
+                        <Link className={scss.navbarLinks} to="/frontpage">FORSIDE</Link>
                         <Link className={scss.navbarLinks} to="/distances">DISTANCER</Link>
                         <Link className={scss.navbarLinks} to="/registration">TILMELDING</Link>
-                        <span className={scss.navbarLinks}>LOGIN</span>
-                        <form className={scss.navbarform}>
-                            {
-                                !props.loginData.user_id &&
-                                <>
-                                    <label className={scss.navbarlabel}>Brugernavn</label>
-                                    <input value={username} onClick={() => { setUsername("") }} onChange={(e) => { setUsername(e.target.value) }} />
-                                    <label className={scss.navbarlabel}>Password</label>
-                                    <input type="password" value={password} onClick={() => { setPassword("") }} onChange={(e) => { setPassword(e.target.value) }} />
-                                    <button onClick={(e) => { getToken(e) }} >Log ind</button>
-                                </>
-                            }
-                            {
-                                props.loginData.user_id &&
-                                <button onClick={(e) => { logOut(e) }} >Log ud</button>
-                            }
-                        </form>
-                        <Link className={scss.navbarLinks} to="/frontpage">FORSIDE</Link>
+                        <Link className={scss.navbarLinks} to="/about">OM RØRDAL RUN</Link>
+                        <div className={scss.logindropdown}>
+                            <span className={scss.navbarLinks}>LOGIN <FaCaretDown /></span>
+                            <div className={scss.logindropdowncontent}>
+                                <form className={scss.navbarform}>
+                                    {
+                                        !props.loginData.user_id &&
+                                        <>
+                                            <label className={scss.navbarlabel}>Brugernavn</label>
+                                            <input value={username} onClick={() => { setUsername("") }} onChange={(e) => { setUsername(e.target.value) }} />
+                                            <label className={scss.navbarlabel}>Password</label>
+                                            <input type="password" value={password} onClick={() => { setPassword("") }} onChange={(e) => { setPassword(e.target.value) }} />
+                                            <button onClick={(e) => { getToken(e) }} >Log ind</button>
+                                        </>
+                                    }
+                                    {
+                                        props.loginData.user_id &&
+                                        <button className={scss.logoutbtn} onClick={(e) => { logOut(e) }} >Log ud</button>
+                                    }
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ul>
