@@ -69,5 +69,18 @@
         border-radius: 5px;
         border: 2px solid $darkBlue;
         cursor: pointer;
+        text-decoration: none;
+        font-size: $buttonSize;
+        font-weight: $buttonStyle
+    }
+}
+
+.iwonder {
+    h3 {
+        font-size: $bodySize;
+        margin: 8px 0 0 0;
+    }
+    p {
+        margin: 0 0 8px 0;
     }
 }

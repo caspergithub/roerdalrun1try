@@ -6,6 +6,7 @@ import About from './components/about/About';
 import Footer from './components/footer/Footer';
 import Distances from './components/distances/Distances';
 import Registation from './components/registration/Registration';
+import Participants from './components/participants/Participants';
 
 function App() {
 
@@ -40,6 +41,9 @@ function App() {
     <Router>
       <Navbar loginData={loginData} setLoginData={setLoginData}/>
       <Switch>
+        <Route path="/participants">
+          <Participants loginData={loginData} setLoginData={setLoginData} doFetch={doFetch}/>
+        </Route>
         <Route path="/registration">
           <Registation loginData={loginData} setLoginData={setLoginData} doFetch={doFetch}/>
         </Route>
@@ -50,7 +54,7 @@ function App() {
           <About doFetch={doFetch}/>
         </Route>
         <Route path="/">
-          <Frontpage/>
+          <Frontpage doFetch={doFetch} />
         </Route>
       </Switch>
       <Footer/>

@@ -20,17 +20,6 @@
     }
 }
 
-h3 {
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: $titleSize;
-    font-weight: $bodyStyle;
-
-    @media screen and (max-width: 800px) {
-        font-size: $subheaderSize;
-    }
-}
-
 .breadcrumbs {
     font-size: $buttonSize;
     font-weight: $buttonStyle;
@@ -41,23 +30,24 @@ h3 {
     color: $darkBlue;
 }
 
-.distancesgrid {
+.participantsgrid {
+    background-color: $lightBlue;
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 16px;
-    margin-top: 16px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1rem;
+    gap: 1rem;
 
     @media screen and (max-width: 800px) {
-        grid-template-columns: 1fr;
-    }
-
-    .backgroundblue {
-        background-color: $lightBlue;
-        padding: 12px;
-        transition: height 1s;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-.cursorpointer {
-    cursor: pointer;
+.participantsinnerdiv {
+    border: 2px solid $midBlue;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.participantsinfo {
+    margin: 4px 0;
 }

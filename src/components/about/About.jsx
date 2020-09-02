@@ -25,7 +25,7 @@ export default function About(props) {
             <section>
                 <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> OM RØRDAL RUN</span>
                 <h2>{page.item && page.item.title}</h2>
-                <p>{page.item && page.item.content}</p>
+                <div dangerouslySetInnerHTML={page.item && { __html: page.item.content}}></div>
             </section>
         </div>
     )

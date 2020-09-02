@@ -88,34 +88,42 @@ export default function Registration(props) {
             <section>
                 <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> TILMELDING</span>
                 <h2>{page.item && page.item.title}</h2>
-                <p>{page.item && page.item.content}</p>
-                <form>
+                <div dangerouslySetInnerHTML={page.item && { __html: page.item.content}}></div>
+                <form className={scss.registrationform}>
                     <div>
                         <label>Navn</label>
-                        <input onChange={(e) => { setFirstname(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setFirstname(e.target.value) }}></input>
+
                         <label>Efternavn</label>
-                        <input onChange={(e) => { setLastname(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setLastname(e.target.value) }}></input>
+
                         <label>Fødselsdato</label>
-                        <input type="date" onChange={(e) => { setBirthdate(e.target.value) }}>
+                        <input className={scss.registrationinput} type="date" onChange={(e) => { setBirthdate(e.target.value) }}>
                         </input>
+
                         <label>Køn</label>
                         <select onChange={(e) => { setGender(e.target.value) }}>
-                            <option value="">Vælg køn</option>
+                            <option value="m">Vælg køn</option>
                             <option value="m">Mand</option>
                             <option value="f">Kvinde</option>
                         </select>
+
                         <label>E-mail</label>
-                        <input onChange={(e) => { setEmail(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setEmail(e.target.value) }}></input>
                     </div>
                     <div>
                         <label>Adresse</label>
-                        <input onChange={(e) => { setAddress(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setAddress(e.target.value) }}></input>
+
                         <label>Postnummer</label>
-                        <input onChange={(e) => { setZipcode(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setZipcode(e.target.value) }}></input>
+
                         <label>By</label>
-                        <input onChange={(e) => { setCity(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setCity(e.target.value) }}></input>
+
                         <label>Telefon</label>
-                        <input onChange={(e) => { setPhone(e.target.value) }}></input>
+                        <input className={scss.registrationinput} onChange={(e) => { setPhone(e.target.value) }}></input>
+
                         <label>Vælg Program</label>
                         <select onChange={(e) => { setRunID(e.target.value) }}>
                             <option value="1">1</option>
@@ -125,8 +133,9 @@ export default function Registration(props) {
                     </div>
                     <div>
                         <label>Kommentar</label>
-                        <input onChange={(e) => { setComment(e.target.value) }}></input>
-                        <button onClick={(e) => { sendRegistration(e) }}>TILMELD</button>
+                        <input className={scss.commentfield} onChange={(e) => { setComment(e.target.value) }}></input>
+
+                        <button onClick={(e) => { sendRegistration(e) }} className={scss.tilmeld}>TILMELD</button>
                     </div>
                 </form>
             </section>

@@ -70,6 +70,7 @@ export default function Navbar(props) {
                         <Link className={scss.navbarLinks} to="/frontpage">FORSIDE</Link>
                         <Link className={scss.navbarLinks} to="/distances">DISTANCER</Link>
                         <Link className={scss.navbarLinks} to="/registration">TILMELDING</Link>
+                        <Link className={scss.navbarLinks} to="/participants">DELTAGERLISTE</Link>
                         <Link className={scss.navbarLinks} to="/about">OM RØRDAL RUN</Link>
                         <div className={scss.logindropdown}>
                             <span className={scss.navbarLinks}>LOGIN <FaCaretDown /></span>

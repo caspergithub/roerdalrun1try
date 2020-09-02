@@ -30,7 +30,7 @@
     color: $darkBlue;
 }
 
-form {
+.registrationform {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
@@ -43,7 +43,29 @@ form {
         display: block;
     }
 
-    input {
+    .registrationinput {
         display: block;
+        width: 100%;
+        margin: .5rem 0 1rem 0;
     }
+
+    .commentfield {
+        display: block;
+        width: 100%;
+        height: 120px;
+        margin: .5rem 0 1rem 0;
+    }
+}
+
+.tilmeld {
+    background-color: $darkBlue;
+    color: white;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid $darkBlue;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: $buttonSize;
+    font-weight: $buttonStyle
 }
