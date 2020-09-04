@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/roerdalrun1try/static/css/main.c36715c0.chunk.css",
+    "main.js": "/roerdalrun1try/static/js/main.9581a15c.chunk.js",
+    "main.js.map": "/roerdalrun1try/static/js/main.9581a15c.chunk.js.map",
+    "runtime-main.js": "/roerdalrun1try/static/js/runtime-main.9c7a4417.js",
+    "runtime-main.js.map": "/roerdalrun1try/static/js/runtime-main.9c7a4417.js.map",
+    "static/js/2.aefd74fb.chunk.js": "/roerdalrun1try/static/js/2.aefd74fb.chunk.js",
+    "static/js/2.aefd74fb.chunk.js.map": "/roerdalrun1try/static/js/2.aefd74fb.chunk.js.map",
+    "index.html": "/roerdalrun1try/index.html",
+    "precache-manifest.782042ce8f9acf31b0a8db6bd525cd67.js": "/roerdalrun1try/precache-manifest.782042ce8f9acf31b0a8db6bd525cd67.js",
+    "service-worker.js": "/roerdalrun1try/service-worker.js",
+    "static/css/main.c36715c0.chunk.css.map": "/roerdalrun1try/static/css/main.c36715c0.chunk.css.map",
+    "static/js/2.aefd74fb.chunk.js.LICENSE.txt": "/roerdalrun1try/static/js/2.aefd74fb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c7a4417.js",
+    "static/js/2.aefd74fb.chunk.js",
+    "static/css/main.c36715c0.chunk.css",
+    "static/js/main.9581a15c.chunk.js"
+  ]
+}
