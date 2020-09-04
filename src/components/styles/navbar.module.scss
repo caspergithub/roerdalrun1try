@@ -92,18 +92,20 @@
     cursor: pointer;
     transition: opacity .2s;
     transition-delay: .2s;
+
 }
 
 .menux {
     color: white;
     font-size: 28px;
     z-index: 10;
+    transition: opacity .2s;
 }
 
 .dropdown {
     display: inline-block;
     width: 15vw;
-
+    
     @media screen and (max-width: 800px) {
         width: 100vw;
     }
@@ -113,7 +115,7 @@
     display: none;
     width: 15vw;
     z-index: 1;
-
+    
     @media screen and (max-width: 800px) {
         width: 100vw;
     }
@@ -136,6 +138,9 @@
     display: block;
 }
 
+.menuxdiv:hover .menux{
+    opacity: 0;
+}
 
 .navbarform {
     display: grid;

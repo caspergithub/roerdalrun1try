@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 export default function Frontpage(props) {
 
+    console.log("link til postman docs: https://documenter.getpostman.com/view/6540576/TVCb2pij#intro")
+
     // fetch page
     const [page, setPage] = useState([])
     // console.log("Frontpage -> page", page)

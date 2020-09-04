@@ -119,24 +119,25 @@ export default function Registration(props) {
                             <input className={scss.registrationinput} onChange={(e) => { setAddress(e.target.value) }}></input>
 
                             <label>Postnummer</label>
-                            <input className={scss.registrationinput} onChange={(e) => { setZipcode(e.target.value) }}></input>
+                            <input type="number" className={scss.registrationinput} onChange={(e) => { setZipcode(e.target.value) }}></input>
 
                             <label>By</label>
                             <input className={scss.registrationinput} onChange={(e) => { setCity(e.target.value) }}></input>
 
                             <label>Telefon</label>
-                            <input className={scss.registrationinput} onChange={(e) => { setPhone(e.target.value) }}></input>
+                            <input type="number" className={scss.registrationinput} onChange={(e) => { setPhone(e.target.value) }}></input>
 
                             <label>Vælg Program</label>
                             <select onChange={(e) => { setRunID(e.target.value) }}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="Vælg program">Vælg program</option>
+                                <option value="1">10km</option>
+                                <option value="2">5km</option>
+                                <option value="3">One mile</option>
                             </select>
                         </div>
                         <div>
                             <label>Kommentar</label>
-                            <input className={scss.commentfield} onChange={(e) => { setComment(e.target.value) }}></input>
+                            <textarea className={scss.commentfield} onChange={(e) => { setComment(e.target.value) }}></textarea>
 
                             <button onClick={(e) => { sendRegistration(e) }} className={scss.tilmeld}>TILMELD</button>
                         </div>
