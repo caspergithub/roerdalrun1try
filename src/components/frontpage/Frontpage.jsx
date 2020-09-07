@@ -30,7 +30,7 @@ export default function Frontpage(props) {
                     <h2>{page.item && page.item.title}</h2>
                     <div className={scss.iwonder} dangerouslySetInnerHTML={page.item && { __html: page.item.content}}></div>
 
-                    <button className={scss.mereinfo}>MERE INFO</button>
+                    <Link to="/about" className={scss.mereinfo}>MERE INFO</Link>
                 </div>
                 <div className={scss.item2}>
                     <h3>Ruter</h3>

@@ -54,10 +54,13 @@
     .mereinfo {
         border: 2px solid $midBlue;
         padding: 8px;
+        margin: 1rem 0;
         color: $darkBlue;
+        font-size: $buttonSize;
         font-weight: $buttonStyle;
         background-color: white;
         border-radius: 5px;
+        text-decoration: none;
         cursor: pointer;
     }
 

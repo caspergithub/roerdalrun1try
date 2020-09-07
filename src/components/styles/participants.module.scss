@@ -33,9 +33,7 @@
 .participantsgrid {
     background-color: $lightBlue;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 1rem;
-    gap: 1rem;
+    grid-template-columns: 1fr;
 
     @media screen and (max-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
@@ -47,14 +45,52 @@
 }
 
 .participantsinnerdiv {
-    border: 2px solid $midBlue;
-    border-radius: 5px;
-    padding: 1rem;
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &:nth-child(even) {
+        background-color: $midBlue;
+    }
+
 }
 
 .participantsinfo {
     margin: 4px 0;
     font-size: 10pt;
+}
+
+.participantsinfotacenter {
+    margin: 4px 0;
+    font-size: 10pt;
+    text-align: center;
+}
+
+.participantsinfotaend {
+    margin: 4px 0;
+    font-size: 10pt;
+    text-align: end;
+}
+
+.sortbtns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.sortbtn {
+    padding: .8rem;
+    color: $darkBlue;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: $buttonSize;
+    font-weight: $buttonStyle
+}
+
+.sortbtn:focus {
+    outline: none;
 }
 
 .searchgrid {

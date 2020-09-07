@@ -3,6 +3,7 @@ import Heroheader from '../heroheader/Heroheader'
 import scss from '../styles/participants.module.scss'
 import { Link } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa'
+import { TiArrowUnsorted } from 'react-icons/ti'
 
 export default function Participants(props) {
 
@@ -26,7 +27,7 @@ export default function Participants(props) {
 
     // get participants
     const [participants, setParticipants] = useState('')
-    
+
     useEffect(() => {
         console.log("Participants -> participants", participants)
     }, [participants])
@@ -41,7 +42,6 @@ export default function Participants(props) {
             const data = await response.json()
             setParticipants(data)
             setIsLoading(false)
-
         }
         catch (error) {
             console.log(error)
@@ -72,6 +72,14 @@ export default function Participants(props) {
     }
 
 
+    function sortByKey(array, key) {
+        return array.sort(function (a, b) {
+            var x = a[key]; var y = b[key];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+    }
+
+
     return (
         <div className={scss.maindiv}>
             <Heroheader />
@@ -79,35 +87,36 @@ export default function Participants(props) {
                 <span className={scss.breadcrumbs}><Link to="/frontpage" className={scss.bclink}>FORSIDE</Link> <FaAngleRight /> DELTAGERLISTE</span>
                 <h2>{page.item && page.item.title}</h2>
                 <div dangerouslySetInnerHTML={page.item && { __html: page.item.content }}></div>
+                <p>Fandt : {participants.count && participants.count}{participants.num_items && participants.num_items} deltagere</p>
 
                 <div className={scss.searchgrid}>
-                <input 
-                type="text" 
-                className="form-control" 
-                placeholder="Søg blandt deltagere" 
-                onChange={(e) => setQuery(e.target.value)}
-                autoFocus />
-                <button onClick={() => {!query == "" ? getSearchResult() : getParticipants()}}>SØG</button>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Søg blandt deltagere"
+                        onChange={(e) => setQuery(e.target.value)}
+                        autoFocus />
+                    <button onClick={() => { !query == "" ? getSearchResult() : getParticipants() }}>SØG</button>
                 </div>
-
                 {isLoading ? (<h2>Henter deltagere</h2>) : (
-
                     <div className={scss.participantsgrid}>
+
+                        <div className={scss.sortbtns}>
+                            <button className={scss.sortbtn} onClick={() => sortByKey(participants.items, "firstname")}>Deltager <TiArrowUnsorted/></button>
+                            <button className={scss.sortbtn}>By <TiArrowUnsorted/></button>
+                            <button className={scss.sortbtn}>Distance <TiArrowUnsorted/></button>
+                        </div>
+
                         {participants.items && participants.items.map((item, i) => {
                             return (<div key={i} className={scss.participantsinnerdiv}>
                                 <p className={scss.participantsinfo}>Navn: {item.firstname} {item.lastname}</p>
-                                <p className={scss.participantsinfo}>Fra: {item.city}</p>
-                                <p className={scss.participantsinfo}>E-mail: {item.email}</p>
-                                <p className={scss.participantsinfo}>{item.run_id == 1 && "Jeg skal løbe 10km"}</p>
-                                <p className={scss.participantsinfo}>{item.run_id == 2 && "Jeg skal løbe 5km"}</p>
-                                <p className={scss.participantsinfo}>{item.run_id == 3 && "Jeg skal løbe one mile"}</p>
+                                <p className={scss.participantsinfotacenter}>Fra: {item.city}</p>
+                                <p className={scss.participantsinfotaend}>{item.run_id == 1 && "Jeg skal løbe 10km"}{item.run_id == 2 && "Jeg skal løbe 5km"}{item.run_id == 3 && "Jeg skal løbe one mile"}</p>
                             </div>
                             )
                         })}
                     </div>
-
                 )}
-
             </section>
         </div>
     )
