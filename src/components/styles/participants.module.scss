@@ -95,7 +95,7 @@
 
 .searchgrid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 4px;
     margin: 1rem 0;
 

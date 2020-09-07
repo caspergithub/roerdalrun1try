@@ -97,6 +97,7 @@ export default function Participants(props) {
                         onChange={(e) => setQuery(e.target.value)}
                         autoFocus />
                     <button onClick={() => { !query == "" ? getSearchResult() : getParticipants() }}>SØG</button>
+                    <button onClick={() => getParticipants()}>HENT ALLE DELTAGERE</button>
                 </div>
                 {isLoading ? (<h2>Henter deltagere</h2>) : (
                     <div className={scss.participantsgrid}>
